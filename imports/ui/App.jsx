@@ -22,7 +22,7 @@ class App extends Component {
         {/* Home Components */}
         <Navbar />
         <PublicBookList publicBookList={this.props.books}/>
-        <Friends />
+        <Friends publicFriendsList/>
         
 
         {/* Profile Page Components */}
