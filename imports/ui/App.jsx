@@ -11,10 +11,12 @@ import { Books } from '../api/books.js';
 
 
 
+
 class App extends Component {
 
   render() {
     console.log(this.props.books);
+    //var propertypass = {users: this.props.users, currentUser: this.props.currentUser};
     return(
 
       <div>
@@ -22,7 +24,7 @@ class App extends Component {
         {/* Home Components */}
         <Navbar />
         <PublicBookList publicBookList={this.props.books}/>
-        <Friends publicFriendsList/>
+        <Friends friendsList={this.props.users} User = {this.props.currentUser}/>
         
 
         {/* Profile Page Components */}
@@ -39,5 +41,7 @@ class App extends Component {
 export default withTracker(() => {
   return {
     books: Books.find({}).fetch(),
+    users: Meteor.users.find({}).fetch(),
+    currentUser: Meteor.user(),
   };
 })(App);
