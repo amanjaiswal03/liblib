@@ -8,7 +8,7 @@ class ProfilePage extends Component {
             <div>
                 <Name />
                 <AddBook />
-                <MyBookList />
+                <MyBookList myBookList={this.props.myBookList}/>
             </div>
         );
     }

@@ -6,14 +6,17 @@ class PublicBookList extends Component {
         var pblist = this.props.publicBookList;
         return (
             <div className = "book-list">
+                All Books
                 <ul>
                     {pblist.map((book) => {
                         return (
+
                             <li key={book._id}>
                                 <div>{book.title}</div>
                                 <div>{book.author}</div>
                                 <div>{book.owned_by}</div>
                             </li>  
+                            
                         );
                     }
                     )}
