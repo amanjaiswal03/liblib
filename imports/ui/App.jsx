@@ -28,7 +28,7 @@ class App extends Component {
         
 
         {/* Profile Page Components */}
-        <ProfilePage />
+        <ProfilePage myBookList={this.props.books}/>
 
       </div>
     );

@@ -37,7 +37,7 @@ class ProfilePage extends Component {
 
 
                 <AddBook />
-                <MyBookList />
+                <MyBookList myBookList={this.props.myBookList}/>
             </div>
         );
     }
