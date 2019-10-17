@@ -8,7 +8,7 @@ class Friends extends Component {
         return (
             <div className = "friends-list">
                 <ul>
-                    {flist.map((friend)=> { console.log(this.props.User);
+                    {flist.map((friend)=> { //console.log(this.props.User);
                         if( this.props.User && this.props.User._id !== friend._id) {
                             return (
                                 

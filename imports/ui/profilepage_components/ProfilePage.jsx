@@ -6,18 +6,21 @@ class ProfilePage extends Component {
     
     constructor(props){
         super(props);
-        this.state={username: ""};
+        this.state = {username: ""};
 
     }
     
    
-   // handleOnblur(){
-    
-     //   console.log(this.state.username);
+    handleOnblur(){
+   
+        Meteor.users.update({_id : Meteor.userId()}, {$set : {'profile.nickname': this.state.username }})
+    }
 
-  //  }
+   
+
    
     render() { 
+        // console.log(this.props.profiles);
         return (
             <div>
                 <form>
@@ -26,7 +29,7 @@ class ProfilePage extends Component {
                         placeholder= "your name"
                         onChange={(e)=> {this.setState({username: e.target.value});}}
                 
-                        onBlur={()=> {Meteor.users.update({_id : Meteor.userId()}, {$set : {'profile.nickname': this.state.username }})}}
+                        onBlur={this.handleOnblur.bind(this)}
                     >
                     
                     </input>
@@ -35,9 +38,10 @@ class ProfilePage extends Component {
                 </form>
                 <h6>your name will be visible to your friends</h6>
 
-
-                <AddBook />
-                <MyBookList myBookList={this.props.myBookList}/>
+                {/*   User == CurrentUser passed by app.jsx */}
+                <AddBook User = {this.props.User} /> 
+                <MyBookList Profiles={this.props.profiles} User={this.props.User} />
+                
             </div>
         );
     }

@@ -15,6 +15,7 @@ class PublicBookList extends Component {
                                 <div>{book.title}</div>
                                 <div>{book.author}</div>
                                 <div>{book.owned_by}</div>
+                                
                             </li>  
                             
                         );

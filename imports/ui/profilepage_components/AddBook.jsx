@@ -13,7 +13,8 @@ class AddBook extends Component {
         const author = ReactDOM.findDOMNode(this.refs.authorNameInput).value.trim();
 
         // Later: Get the owner name from Username
-        const owner = "Aman";
+        const owner = this.props.User.profile.nickname;
+        const userId = this.props.User._id;
      
         
         // If book name & author fields are not empty
@@ -21,12 +22,19 @@ class AddBook extends Component {
         if (bookName && author){
 
             // Insert the data in database
-            Books.insert({ 
-                title: bookName, 
-                author: author, 
-                owned_by: owner, 
-                createdAt: new Date() 
-            });
+            
+            
+            // How
+            Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
+           // Meteor.users.insert({$set: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
+            
+            // Books.insert({ 
+            //     title: bookName, 
+            //     author: author, 
+            //     owned_by: owner,
+            //     ownerId: userId,
+            //     createdAt: new Date() 
+            // });
             
             // Then Clear form
             ReactDOM.findDOMNode(this.refs.bookNameInput).value = '';

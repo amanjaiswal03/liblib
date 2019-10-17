@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.3",
+    "history": "^4.10.1",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "react-router": "^5.1.2"
   },
   "meteor": {
     "mainModule": {
