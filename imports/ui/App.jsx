@@ -60,7 +60,7 @@ class App extends Component {
               return(
                 <div>
                   <Navbar/>
-                  <PublicBookList publicBookList={this.props.books}/>
+                  <PublicBookList publicBookList={this.props.books} Profiles={this.props.users}/>
                   <Friends friendsList={this.props.users} User = {this.props.currentUser}/>
                 </div> ) }}/>              
            

@@ -7,8 +7,9 @@ class MyBookList extends Component {
         //this.renderBooks = this.renderBooks.bind(this);
     }
 
-    deleteThisBook(bookid) {
-        Books.remove(bookid);
+    deleteThisBook(bookTitle) {
+        //Books.remove(bookTitle);
+        Meteor.users.update({_id : Meteor.userId()}, {$pull: {'profile.books': ({'title': bookTitle})}})
     }
 
     renderBooks(){        
@@ -16,12 +17,12 @@ class MyBookList extends Component {
             let profileList = this.props.Profiles;
             //console.log(this) 
            // console.log(this.props.Profiles[0]);
-            console.log(profileList);
-            if (profileList.length>0){
+           // console.log(profileList);
+            if (profileList.length>1){
                 let currentUserData = profileList.filter((x) => {return (x._id == Meteor.userId())});
-                //console.log(currentUserData);
+                console.log(currentUserData);
                 let bookArray = currentUserData[0].profile.books;
-                console.log(bookArray);
+             //   console.log(bookArray);
                 
                 
                 // if( this.props.User && this.props.User._id == tProfiles._id) {
