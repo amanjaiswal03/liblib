@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Navbar from './Navbar';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Route, Switch } from 'react-router';
+import { withRouter } from 'react-router-dom';
+//import createBrowserHistory from 'history/createBrowserHistory'; //change import to: require("history").createBrowserHistory` soon
+
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 
-import { withTracker } from 'meteor/react-meteor-data';
-
-import { Router, Route, Switch } from 'react-router';
-import { withRouter } from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory'; //change import to: require("history").createBrowserHistory` soon
-
+import Navbar from './Navbar';
 
 
 
  //test
-const browserHistory = createBrowserHistory();
+// const browserHistory = createBrowserHistory();
 //test end
 
 class App extends Component {
@@ -26,29 +24,19 @@ class App extends Component {
 
      <div>
         <Navbar/>
+        <Switch>
+          <Route exact path="/" render={()=>{
+            return(
+              <div>
+                <Home Profiles={this.props.users} User={this.props.currentUser}/>
+              </div> ) }}/>              
+          <Route exact path="/profile/:id" render={()=>{
+            return(
+              <div>
+                <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
+              </div> ) }}/>
+        </Switch>
       
-        <Router history={browserHistory}>
-          <Switch>
-            {/* <Route exact path="/home" component={}/>
-            <Route exact path="/" component={AccountsUIWrapper}/> */}
-            <Route exact path="/" render={()=>{
-              return(
-                <div>
-                  <Home Profiles={this.props.users} User={this.props.currentUser}/>
-                 
-                </div> ) }}/>              
-           
-            <Route exact path="/profile/:id" render={()=>{
-              return(
-                <div>
-                  <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
-                </div> ) }}/>
-                      
-            {/* <Route exact path="/signin" component={AuthPageSignIn}/>
-            <Route exact path="/join" component={AuthPageJoin}/>
-            <Route component={NotFoundPage}/> */}
-          </Switch>
-        </Router>
 
 
 
@@ -82,3 +70,5 @@ export default withTracker(() => {
     currentUser: Meteor.user(),
   };
 })(App);
+
+export {withRouter};

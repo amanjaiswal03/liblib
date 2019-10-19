@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link, Router} from "react-router";
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 
 
 class Navbar extends Component {
@@ -21,8 +21,12 @@ class Navbar extends Component {
 
     render() { 
         return (
-            
+            <div>
+
                 <nav>
+                    <NavLink to='/'>Home</NavLink>   
+                    <NavLink to='/profile/:id'>My Profile</NavLink>             
+                   
                     {/* <Link to='/profiles/:id'>Click Me</Link> */}
                     {/* <button onClick={this.handleButtonClickHome.bind(this)}> Logo </button>
                     <button onClick={this.handleButtonClick.bind(this)}> My Books </button>
@@ -31,6 +35,8 @@ class Navbar extends Component {
                     
                 
                 </nav>
+               
+            </div>
             
         );
     }
