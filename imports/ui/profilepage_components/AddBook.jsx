@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Books } from '../../api/books.js';
+
 
 class AddBook extends Component {
 
@@ -12,10 +12,6 @@ class AddBook extends Component {
         const bookName = ReactDOM.findDOMNode(this.refs.bookNameInput).value.trim();
         const author = ReactDOM.findDOMNode(this.refs.authorNameInput).value.trim();
 
-        // Later: Get the owner name from Username
-        const owner = this.props.User.profile.nickname;
-        const userId = this.props.User._id;
-     
         
         // If book name & author fields are not empty
         // Later: Check for owner name as well

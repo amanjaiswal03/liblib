@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Router} from "react-router";
-import AccountsUIWrapper from '../../AccountsUIWrapper.jsx';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 
 class Navbar extends Component {

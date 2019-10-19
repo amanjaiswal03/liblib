@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ProfilePage from '../profilepage_components/ProfilePage';
+import ProfilePage from '../pages/Profile';
 
 
 class Friends extends Component {
     render() { 
-        var flist = this.props.friendsList;
+        var flist = this.props.Profiles;
         return (
             <div className = "friends-list">
                 <ul>
