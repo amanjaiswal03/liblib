@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './home_components/Navbar';
+import Navbar from './home_components/NavComponents/Navbar';
 import PublicBookList from './home_components/PublicBookList';
 import Friends from './home_components/Friends';
 import ProfilePage from './profilepage_components/ProfilePage';
@@ -51,6 +51,7 @@ class App extends Component {
 
       // test
      <div>
+        <Navbar/>
       
         <Router history={browserHistory}>
           <Switch>
@@ -59,7 +60,7 @@ class App extends Component {
             <Route exact path="/" render={()=>{
               return(
                 <div>
-                  <Navbar/>
+                 
                   <PublicBookList publicBookList={this.props.books} Profiles={this.props.users}/>
                   <Friends friendsList={this.props.users} User = {this.props.currentUser}/>
                 </div> ) }}/>              

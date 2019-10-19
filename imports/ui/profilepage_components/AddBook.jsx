@@ -46,25 +46,28 @@ class AddBook extends Component {
     
 
     render() { 
+       
         return (
+            <div>
+                <form onSubmit={this.handleSubmit.bind(this)}>
 
-            <form onSubmit={this.handleSubmit.bind(this)}>
+                    <input type = "text" 
+                        placeholder = "Name of the Book" 
+                        ref = "bookNameInput"
+                    />
 
-                <input type = "text" 
-                       placeholder = "Name of the Book" 
-                       ref = "bookNameInput"
-                />
+                    <input type = "text" 
+                        placeholder = "Author" 
+                        ref = "authorNameInput"
+                    />
 
-                <input type = "text" 
-                       placeholder = "Author" 
-                       ref = "authorNameInput"
-                />
+                    <input type = "Submit" 
+                        ref = "submitButton"
+                    />
 
-                <input type = "Submit" 
-                       ref = "submitButton"
-                />
-
-            </form>
+                </form>
+                <h6>Add books you own. They will be visible to your friends</h6>
+            </div>
 
         );
     }
