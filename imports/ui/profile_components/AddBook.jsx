@@ -17,30 +17,20 @@ class AddBook extends Component {
         // Later: Check for owner name as well
         if (bookName && author){
 
-            // Insert the data in database
-            
-            
-            // How
+            // Insert the data in database         
+        
             Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
            // Meteor.users.insert({$set: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
             
-            // Books.insert({ 
-            //     title: bookName, 
-            //     author: author, 
-            //     owned_by: owner,
-            //     ownerId: userId,
-            //     createdAt: new Date() 
-            // });
+         
             
             // Then Clear form
             ReactDOM.findDOMNode(this.refs.bookNameInput).value = '';
             ReactDOM.findDOMNode(this.refs.authorNameInput).value = '';
         }
-     
-
       }
-    
 
+      
     render() { 
        
         return (
