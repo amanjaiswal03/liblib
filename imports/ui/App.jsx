@@ -2,29 +2,44 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route, Switch } from 'react-router';
 import { withRouter } from 'react-router-dom';
-//import createBrowserHistory from 'history/createBrowserHistory'; //change import to: require("history").createBrowserHistory` soon
+
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
 
 import Navbar from './Navbar';
 
 
 
- //test
-// const browserHistory = createBrowserHistory();
-//test end
-
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      showHeader : true,
+    }
+  }
 
+  hideNavigation = () => {
+    this.setState({
+      showHeader : false,
+    }) 
+  }  
+
+  
   render() {
 
     return(
 
      <div>
-        <Navbar/>
+        {this.state.showHeader && <Navbar/>}
         <Switch>
+          <Route exact path="/login" render={()=>{
+            return(
+              <div>
+                <Login hideNavigation={this.hideNavigation} />
+              </div> ) }}/>        
           <Route exact path="/" render={()=>{
             return(
               <div>

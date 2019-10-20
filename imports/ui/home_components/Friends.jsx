@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProfilePage from '../pages/Profile';
+
 
 
 class Friends extends Component {

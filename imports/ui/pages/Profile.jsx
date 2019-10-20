@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AddBook from '../profilepage_components/AddBook';
-import MyBookList from '../profilepage_components/MyBookList';
-import Name from '../profilepage_components/Name.jsx';
+import AddBook from '../profile_components/AddBook';
+import MyBookList from '../profile_components/MyBookList';
+import Name from '../profile_components/Name.jsx';
 
 class Profile extends Component {
     
