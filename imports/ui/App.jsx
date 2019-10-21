@@ -7,6 +7,8 @@ import { withRouter, Redirect, BrowserRouter} from 'react-router-dom';
 const Home = (lazy(() => ( import ('./pages/Home'))))
 const Profile = (lazy(() => ( import ('./pages/Profile'))))
 const Login = (lazy(() => ( import ('./pages/Login'))))
+const Onboarding1 = (lazy(() => ( import ('./pages/Onboarding1'))))
+const Onboarding2 = (lazy(() => ( import ('./pages/Onboarding2'))))
 
 
 import Navbar from './Navbar';
@@ -62,6 +64,7 @@ class App extends Component {
                     <Login hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser}/>
                   </div> ) }}/>        
               
+
               
               <Route exact path="/" render={()=>
               
@@ -79,6 +82,21 @@ class App extends Component {
                   <div>
                     <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
                   </div> ))}/>
+
+
+              <Route exact path="/OnboardingName" render={()=>{
+                return(
+                  <div>
+                    <Onboarding1 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users}/>
+                  </div> ) }}/>   
+
+              <Route exact path="/OnboardingAddBooks" render={()=>{
+                return(
+                  <div>
+                    <Onboarding2 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users}/>
+                  </div> ) }}/>         
+
+
             </Switch>
           
           </Suspense>

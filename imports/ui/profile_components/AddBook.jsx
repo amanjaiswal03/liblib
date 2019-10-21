@@ -52,7 +52,7 @@ class AddBook extends Component {
                     />
 
                 </form>
-                <h6>Add books you own. They will be visible to your friends</h6>
+                
             </div>
 
         );

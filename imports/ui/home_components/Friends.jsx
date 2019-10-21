@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 
 class Friends extends Component {
+
+    
     render() { 
         var flist = this.props.Profiles;
         return (
@@ -12,7 +14,7 @@ class Friends extends Component {
                         if( this.props.User && this.props.User._id !== friend._id) {
                             return (
                                 
-                                <li key={friend._id}>                      
+                                <li key={friend._id} onClick={ ()=>this.props.filterBooksByName(friend._id)} >                      
                                     <div>{friend.profile && friend.profile.nickname ? friend.profile.nickname : ''} </div>
                                     <div>Has 5 books</div>
                                     

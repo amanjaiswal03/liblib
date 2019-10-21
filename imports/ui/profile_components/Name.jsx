@@ -28,15 +28,17 @@ class Name extends Component {
                     <form>
                         <input
                             type="text"
-                            placeholder= "Add your name"
+                            placeholder= "..."
                             defaultValue= {currentName}
                             onChange={(e)=> {this.setState({username: e.target.value});}}     
                             onBlur={this.handleOnblur.bind(this)} //eventually we should make this a button
                         >   
                         </input>
+                        submit
+            
                     </form>
 
-                    <h6>your name will be visible to your friends</h6>
+                    
                 </div>
             );
        

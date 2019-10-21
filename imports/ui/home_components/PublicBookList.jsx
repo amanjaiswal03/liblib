@@ -6,7 +6,7 @@ class PublicBookList extends Component {
 
         let profileList = this.props.Profiles;
 
-        if (profileList.length>1){
+        if (profileList.length>0){ //0 because of filter function, lets test this for  bugs
 
                 return(
                     <div className='book-list'>

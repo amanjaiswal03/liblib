@@ -22,7 +22,7 @@ class MyBookList extends Component {
         
             return (
                 <div>
-                    please
+                    
                     {bookArray.map((book) => {
                         return(
                                                             
