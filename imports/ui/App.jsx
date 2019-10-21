@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { lazy, Suspense, Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Route, Switch } from 'react-router';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect, BrowserRouter} from 'react-router-dom';
 
 
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Login from './pages/Login';
+const Home = (lazy(() => ( import ('./pages/Home'))))
+const Profile = (lazy(() => ( import ('./pages/Profile'))))
+const Login = (lazy(() => ( import ('./pages/Login'))))
+
 
 import Navbar from './Navbar';
+
+
+
+//Component needed for Suspense method
+const LoadingMessage = () => ( "I'm loading...")
 
 
 
@@ -18,50 +24,83 @@ class App extends Component {
     super(props);
     this.state = {
       showHeader : true,
+
     }
   }
+ 
+
+
 
   hideNavigation = () => {
     this.setState({
       showHeader : false,
     }) 
   }  
-
+  unhideNavigation = () => {
+    this.setState({
+      showHeader : true,
+    })
+  }
   
   render() {
-
-    return(
-
-     <div>
-        {this.state.showHeader && <Navbar/>}
-        <Switch>
-          <Route exact path="/login" render={()=>{
-            return(
-              <div>
-                <Login hideNavigation={this.hideNavigation} />
-              </div> ) }}/>        
-          <Route exact path="/" render={()=>{
-            return(
-              <div>
-                <Home Profiles={this.props.users} User={this.props.currentUser}/>
-              </div> ) }}/>              
-          <Route exact path="/profile/:id" render={()=>{
-            return(
-              <div>
-                <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
-              </div> ) }}/>
-        </Switch>
+   
+    // run return only after the last fetch (non-scalable solution)
+    if (!!this.props.currentUser===true || this.props.users.length>1 ) {
       
+      return(
+
+      <div>
+          {this.state.showHeader && <Navbar/>}
+         
+
+          <Suspense fallback={<LoadingMessage/>}>
+
+            <Switch>
+              <Route exact path="/login" render={()=>{
+                return(
+                  <div>
+                    <Login hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser}/>
+                  </div> ) }}/>        
+              
+              
+              <Route exact path="/" render={()=>
+              
+                (!this.props.currentUser? (
+                  <Redirect to="/login" />
+                ):(
+                  <div>
+                    <Home Profiles={this.props.users} User={this.props.currentUser}/>
+                  </div> )) }/>              
+              
+              <Route exact path="/profile/:id" render={()=>
+                (!this.props.currentUser? (
+                  <Redirect to="/login" />
+                ):(
+                  <div>
+                    <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
+                  </div> ))}/>
+            </Switch>
+          
+          </Suspense>
 
 
+        </div>
 
-      </div>
-
-    );
-
+      );
+    }
+    return(<div></div>);
   };
   
 };
+
+
+ 
+
+
+
+
+
+
 
 
 export default withTracker(() => {

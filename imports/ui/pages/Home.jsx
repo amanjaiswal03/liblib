@@ -4,13 +4,18 @@ import Friends from '../home_components/Friends';
 
 class Home extends Component {
     
+
+
     render() { 
-        return ( 
-            <div>
-                <PublicBookList Profiles={this.props.Profiles} />
-                <Friends Profiles={this.props.Profiles} User={this.props.User} />
-            </div>
-         );
+        
+      
+            return ( 
+                <div>
+                    <PublicBookList Profiles={this.props.Profiles} />
+                    <Friends Profiles={this.props.Profiles} User={this.props.User} />
+                </div>
+            );
+        
     }
 }
  
