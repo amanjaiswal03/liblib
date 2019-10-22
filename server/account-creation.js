@@ -4,6 +4,7 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = options.profile || {};  
     user.profile.nickname = '';
     user.profile.books = [];   
+    user.profile.didOnboarding = false;
     
     // Returns the user object
     return user;

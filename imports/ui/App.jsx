@@ -47,12 +47,12 @@ class App extends Component {
   render() {
    
     // run return only after the last fetch (non-scalable solution)
-    if (!!this.props.currentUser===true || this.props.users.length>1 ) {
-      
+    if (!!this.props.currentUser===true || this.props.users.length>0 ) {
+    
       return(
-
+      
       <div>
-          {this.state.showHeader && <Navbar/>}
+          {this.state.showHeader && <Navbar User={this.props.currentUser}/>}
          
 
           <Suspense fallback={<LoadingMessage/>}>
@@ -84,13 +84,13 @@ class App extends Component {
                   </div> ))}/>
 
 
-              <Route exact path="/OnboardingName" render={()=>{
+              <Route exact path="/createProfile/1" render={()=>{
                 return(
                   <div>
                     <Onboarding1 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users}/>
                   </div> ) }}/>   
 
-              <Route exact path="/OnboardingAddBooks" render={()=>{
+              <Route exact path="/createProfile/2" render={()=>{
                 return(
                   <div>
                     <Onboarding2 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users}/>

@@ -16,7 +16,7 @@ class MyBookList extends Component {
             
         let profileList = this.props.Profiles;
         
-        if (profileList.length>1){
+        if (profileList.length>0){
             let currentUserData = profileList.filter((x) => {return (x._id == Meteor.userId())});
             let bookArray = currentUserData[0].profile.books;
         

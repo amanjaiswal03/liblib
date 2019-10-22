@@ -1,11 +1,43 @@
 import React, { Component } from 'react';
 import AddBook from '../profile_components/AddBook';
 import MyBookList from '../profile_components/MyBookList';
+import { BrowserRouter, NavLink } from 'react-router-dom';
+
+
+
+
+// const GetStarted = () => 
+class GetStarted extends Component {
+
+    constructor (props){
+        super(props);
+        this.onboardingDone.bind(this);
+    }
+    onboardingDone(){
+        Meteor.users.update({_id : Meteor.userId()}, {$set : {'profile.didOnboarding': true }});
+        
+    }
+
+
+    render() { 
+        this.onboardingDone();
+        return  <NavLink to ="/"> Get Started! </NavLink>
+    }
+
+}
+ 
+
+
+
+
+
+
+
 
 class Onboarding2 extends Component {
     
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.hideNavigation();
     }
 
@@ -13,12 +45,22 @@ class Onboarding2 extends Component {
         this.props.unhideNavigation();
        
     }
+
+
+
     render() { 
         return ( 
+            
             <div>
-                <AddBook/> 
-                <MyBookList Profiles={this.props.Profiles} User={this.props.User} />   
-
+                
+                {(this.props.User.profile.books.length <3) ? <h2>Step 2/2</h2> : ''}   
+                {(this.props.User.profile.books.length <3) ? <h6>Add at 3 books you own and want your friends to know about. You can add more books later</h6> : ''}  
+                {(this.props.User.profile.books.length <3) ? <AddBook/> : ''}   
+                {(this.props.User.profile.books.length >2) ? <h2>Setup Completed!</h2> : ''}
+                {(this.props.User.profile.books.length >2) ? <GetStarted/> : ''}
+                {(this.props.User.profile.books.length <3) ? <MyBookList Profiles={this.props.Profiles} User={this.props.User}/> : ''}   
+                 
+                
             </div>
          );
     }

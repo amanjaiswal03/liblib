@@ -12,11 +12,12 @@ class Friends extends Component {
                 <ul>
                     {flist.map((friend)=> { 
                         if( this.props.User && this.props.User._id !== friend._id) {
+                            
                             return (
                                 
                                 <li key={friend._id} onClick={ ()=>this.props.filterBooksByName(friend._id)} >                      
                                     <div>{friend.profile && friend.profile.nickname ? friend.profile.nickname : ''} </div>
-                                    <div>Has 5 books</div>
+                                    <div>has {friend.profile.books.length} books</div>
                                     
                                 </li>  
                             )}

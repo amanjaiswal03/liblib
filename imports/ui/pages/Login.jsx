@@ -8,7 +8,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 class Login extends Component {
     
-    componentWillMount() {
+    componentDidMount() {
         this.props.hideNavigation();
     }
 
@@ -19,12 +19,19 @@ class Login extends Component {
 
     render(){
 
-        if (!!this.props.User === true){
+        if (!!this.props.User === true && !!this.props.User.profile.didOnboarding === false){
+            return(
+                <Redirect to="/createProfile/1" />
+            )
+            
+        } else if (!!this.props.User === true){
             return(
                 <Redirect to="/" />
             )
-        } else {
-            console.log(this.props.User)
+        
+        
+            }else {
+            //console.log(this.props.User)
             return(
                 <div>
                     <h2>liblib Beta</h2>

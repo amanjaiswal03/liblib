@@ -6,20 +6,25 @@ import { BrowserRouter, NavLink } from 'react-router-dom';
 class Navbar extends Component {
 
     render() { 
-        return (
-            <div>
+        console.log(this.props.User)
+        
+        if(this.props.User){
+            return (
+                <div>
 
-                <nav>
-                    <NavLink to='/'>Home</NavLink>   
-                    <NavLink to='/profile/:id'>My Profile</NavLink>             
-                    <AccountsUIWrapper />
+                    <nav>
+                        <NavLink to='/'>Home</NavLink>   
+                        <NavLink to='/profile/:id'>{this.props.User.profile.nickname}</NavLink>             
+                        <AccountsUIWrapper />
+                        
                     
+                    </nav>
+
                 
-                </nav>
-               
-            </div>
-            
-        );
+                </div>
+                
+            );}
+        return(<div></div>);
     }
 }
  
