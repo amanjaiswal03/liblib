@@ -4,7 +4,12 @@ import ReactDOM from 'react-dom';
 class EditName extends Component {
     constructor(props){
         super(props);
-        this.state = {username: "", clickedSubmit: false,};
+        this.state = {
+            username: "",
+            clickedSubmit: false,
+            showNameEdit : false,
+        };
+        this.hideEditButton.bind(this);
 
     }
     
@@ -16,10 +21,24 @@ class EditName extends Component {
 
         if (username){
             Meteor.users.update({_id : Meteor.userId()}, {$set : {'profile.nickname': this.state.username }});
-            this.props.hideEditButton();
+            this.hideEditButton();
         
         }
     }
+
+    hideEditButton() {
+        this.setState({
+            showNameEdit: false,
+        })
+    }
+
+    editButtonClicked() {
+        this.setState({
+            showNameEdit: !this.showNameEdit,
+        })
+    }
+
+
 
     render() {
         let profileList = this.props.Profiles;
@@ -30,24 +49,30 @@ class EditName extends Component {
             let currentName = currentUserData[0].profile.nickname;
  
         return (
-        <div>
-            <form onSubmit={this.handleSubmit.bind(this)  } >
-                <input 
-                    type="text"
-                    placeholder= "..."
-                    defaultValue= {currentName}
-                    onChange={(e)=> {this.setState({username: e.target.value});}}     
-                    ref="nicknameInput"
-                />   
-                
-                <input
-                    type="Submit"
-                    ref = "submitButton"
-                />
-                
-    
-            </form>
 
+        <div>
+
+            {this.state.showNameEdit == false ? currentName :''}
+
+            {this.state.showNameEdit &&
+                <form onSubmit={this.handleSubmit.bind(this)  } >
+                    <input 
+                        type="text"
+                        placeholder= {currentName+"..."}
+                        // defaultValue= {currentName}
+                        onChange={(e)=> {this.setState({username: e.target.value});}}     
+                        ref="nicknameInput"
+                    />   
+                    
+                    <input
+                        type="Submit"
+                        ref = "submitButton"
+                        value = "Save"
+                    />
+                    
+                </form>
+            }
+            {this.state.showNameEdit == false ? <button onClick={this.editButtonClicked.bind(this)}>edit </button> : ''}
             
         </div> 
         

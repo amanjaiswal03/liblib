@@ -14,13 +14,7 @@ class Onboarding1 extends Component {
        
     }
 
-    // navigateToNextScreen= () => {
-    //     this.setState({
-    //       showHeader : true,
-    //     })
-    //   }
-
-
+    
     render() { 
         return (  
             <div>
