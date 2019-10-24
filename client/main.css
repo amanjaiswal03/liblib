@@ -1,7 +1,7 @@
 :root {
   --nav-width: 100%;
   --nav-height: 10vh;
-
+  --home-container-top-margin: 20vh;
 }
 
 body {
@@ -62,14 +62,104 @@ a#login-name-link{
 /* ============== All Books ================ */
 
 .home-all-content{
-  margin-top: var(--nav-height);
+  margin-top: var(--home-container-top-margin);
+  display: flex;
+  justify-content: center;
 }
 
-
-.home-central-content{
+.feed-container{
+  
 
 }
+
+.friends-container{
+  
+}
+
 
 .all-users-booklist-container{
+  background-color: white;
+  border-radius: 8px;
+  padding-top: 5px;
+  margin-top: 15px;
+  box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
+}
 
+.user-all-books{
+  list-style-type: none;
+}
+
+.user-all-books-eachBook{
+  background: white;
+  width: 40vw;
+  margin-top: 0px;
+  border-bottom: 0.33px solid rgba(0,0,0,0.5);
+  padding: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.each-book-info{
+  font-family: Montserrat, sans-serif;
+  color: black;
+}
+
+.each-book-title{
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+.each-book-author{
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.each-user-nametag{
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.15);
+  /* background-color: black; */
+  padding: 5px 25px;
+  border-radius: 4px;
+  /* background-opacity: 0.15; */
+}
+
+.each-user-nickname{
+  color: black;
+  opacity: 0.75;
+}
+
+.friends-container{
+  margin-left: 20px;
+}
+
+.members-text{
+  
+}
+
+
+
+.friends-list{
+  margin-top: 15px;
+  border-radius: 8px;
+  padding-bottom: 70px;
+  
+  padding-top: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
+}
+
+.each-friend-container{
+  background: white;
+  /* border: 2px solid; */
+  width: 11vw;
+  padding-left: 28px;
+}
+
+.each-friend-li{
+  list-style-type: none;
+  border-bottom: 0.33px solid rgba(0,0,0,0.5);
+  padding: 17px 10px 17px 0px;
 }

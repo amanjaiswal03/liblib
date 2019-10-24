@@ -15,17 +15,21 @@ class PublicBookList extends Component {
                         let bookArray = Profile.profile.books;
                         //console.log(bookArray);
                         return(
-                            <ul className="user-all-books">
+                            <div className="user-all-books">
                                 {bookArray.map((book) => {
                                     return(
-                                        <li className="user-all-books-eachBook" key={book.title}>
-                                            <div className="each-book-title">{book.title}</div>
-                                            <div className="each-book-author">{book.author}</div>
-                                            <div className="each-user-nickname">{Profile.profile.nickname}</div> 
-                                        </li>
+                                        <div className="user-all-books-eachBook" key={book.title}>
+                                            <div className="each-book-info">
+                                                <div className="each-book-title">{book.title}</div>
+                                                <div className="each-book-author">by {book.author}</div>
+                                            </div>
+                                            <div className="each-user-nametag">
+                                                <div className="each-user-nickname">{Profile.profile.nickname}</div> 
+                                                </div>
+                                            </div>
                                     )
                                 })}
-                            </ul>    
+                            </div>    
                         )
                     })}
                 </div> 

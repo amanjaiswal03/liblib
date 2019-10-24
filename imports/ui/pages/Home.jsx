@@ -33,27 +33,31 @@ class Home extends Component {
 
                 return ( 
 
-                    <div>
-                        <button onClick={this.showAllBooks.bind(this)}>All Books</button>
-                        {this.state.filtered == true? 
-                            this.state.filteredProfiles.map((Profile) => {
-                                return(
-                                    ' > '+Profile.profile.nickname+ '\'s books'
-                                )
-                            }):''
-                        }
-                        
+                    <div className='home-all-content'>
 
-                        <div>
-                            
-                            
-
+                        <div className='feed-container'>
+                            <div className="breadcrumbs">
+                                <button onClick={this.showAllBooks.bind(this)}>All Books</button>
+                                {this.state.filtered == true? 
+                                    this.state.filteredProfiles.map((Profile) => {
+                                        return(
+                                            ' > '+Profile.profile.nickname+ '\'s books'
+                                        )
+                                    }):''
+                                }
+                            </div>
                             {/* renders either all profiles or one profile (triggered in Friends Component)  */}
                             <PublicBookList Profiles={this.state.filteredProfiles}/>
-                            <Friends Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
                         </div>
+
                         
+                        <div className="friends-container">
+                            <div className='members-text'>Members</div>
+                            <Friends Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
+                        </div>    
+
                     </div>
+                        
                 );
     }
 }
