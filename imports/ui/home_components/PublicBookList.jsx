@@ -9,31 +9,37 @@ class PublicBookList extends Component {
         if (profileList.length>0){ //0 because of filter function, lets test this for  bugs
 
                 return(
-                    <div className='book-list'>
-                        {profileList.map((Profile) => {
-                           
-                           let bookArray = Profile.profile.books;
-                            //console.log(bookArray);
-                           return(
-                            <ul>
-                                {bookArray.map((book) => {
-                                    return(
-                                        <li key={book.title}>
-                                        <div>{book.title}</div>
-                                        <div>{book.author}</div>
-                                        <div>{Profile.profile.nickname}</div> 
-                                        
-                                        </li>
-                                    )
-                                })}
-                            </ul>    
-
-                           )
-                        })
+                    <div>
                         
-                        }
-                       
-                    </div>  
+
+                    
+                        <div className='book-list'>
+                            {profileList.map((Profile) => {
+                            
+                            let bookArray = Profile.profile.books;
+                            
+                            return(
+                                <ul>
+                                    {bookArray.map((book) => {
+                                        return(
+                                            <li key={book.title}>
+                                            <div>{book.title}</div>
+                                            <div>{book.author}</div>
+                                            <div>{Profile.profile.nickname}</div> 
+                                            
+                                            </li>
+                                        )
+                                    })}
+                                </ul>    
+
+                            )
+                            })
+                            
+                            }
+                        
+                        </div>
+                    </div> 
+
                 )
                         
                     

@@ -16,7 +16,6 @@ class Navbar extends Component {
                         <NavLink to='/'>Home</NavLink>   
                         <NavLink to='/profile/:id'>{this.props.User.profile.nickname}</NavLink>             
                         <AccountsUIWrapper />
-  
                     </nav>
 
                 

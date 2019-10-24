@@ -8,6 +8,7 @@ class Home extends Component {
         super(props);
         this.state={
             filteredProfiles: this.props.Profiles,
+            filtered: false,
         }
     }
 
@@ -17,26 +18,43 @@ class Home extends Component {
         let filter = this.props.Profiles.filter((x) => {return (x._id == friendId)});;
         this.setState ({
             filteredProfiles: filter,
+            filtered: true
         })
     }
 
     showAllBooks(){
         this.setState ({
             filteredProfiles: this.props.Profiles,
+            filtered: false,
         })
     }
 
     render() { 
-        
-      
-            return ( 
-                <div>
-                    <button onClick={this.showAllBooks.bind(this)}>All Books</button>
-                    <PublicBookList Profiles={this.state.filteredProfiles} />
-                    <Friends Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
-                </div>
-            );
-        
+
+                return ( 
+
+                    <div>
+                        <button onClick={this.showAllBooks.bind(this)}>All Books</button>
+                        {this.state.filtered == true? 
+                            this.state.filteredProfiles.map((Profile) => {
+                                return(
+                                    ' > '+Profile.profile.nickname+ '\'s books'
+                                )
+                            }):''
+                        }
+                        
+
+                        <div>
+                            
+                            
+
+                            {/* renders either all profiles or one profile (triggered in Friends Component)  */}
+                            <PublicBookList Profiles={this.state.filteredProfiles}/>
+                            <Friends Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
+                        </div>
+                        
+                    </div>
+                );
     }
 }
  
