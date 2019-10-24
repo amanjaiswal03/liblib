@@ -30,10 +30,12 @@ class Home extends Component {
         
       
             return ( 
-                <div>
-                    <button onClick={this.showAllBooks.bind(this)}>All Books</button>
-                    <PublicBookList Profiles={this.state.filteredProfiles} />
-                    <Friends Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
+                <div className="home-all-content">
+                    <div className="home-central-content">
+                        <button className="breadcrumbs-allbooks" onClick={this.showAllBooks.bind(this)}>All Books</button>
+                        <PublicBookList Profiles={this.state.filteredProfiles} />
+                    </div>
+                    <Friends className="friends-container" Profiles={this.props.Profiles} User={this.props.User} filterBooksByName={this.filterBooksByName.bind(this)} />
                 </div>
             );
         

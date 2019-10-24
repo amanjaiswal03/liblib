@@ -12,12 +12,11 @@ class Navbar extends Component {
             return (
                 <div>
 
-                    <nav>
-                        <NavLink to='/'>Home</NavLink>   
-                        <NavLink to='/profile/:id'>{this.props.User.profile.nickname}</NavLink>             
-                        <AccountsUIWrapper />
-                        
-                    
+                    <nav className="nav">
+                        <div className="nav-logo">Rekindle</div>
+                        <NavLink className="nav-home-btn" to='/'>Home</NavLink>   
+                        <NavLink className="nav-profile-btn" to='/profile/:id'>{this.props.User.profile.nickname}</NavLink>             
+                        <AccountsUIWrapper className="nav-uiWrapper"/>
                     </nav>
 
                 

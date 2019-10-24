@@ -9,20 +9,19 @@ class PublicBookList extends Component {
         if (profileList.length>0){ //0 because of filter function, lets test this for  bugs
 
                 return(
-                    <div className='book-list'>
+                    <div className='all-users-booklist-container'>
                         {profileList.map((Profile) => {
                            
                            let bookArray = Profile.profile.books;
                             //console.log(bookArray);
                            return(
-                            <ul>
+                            <ul className="user-all-books">
                                 {bookArray.map((book) => {
                                     return(
-                                        <li key={book.title}>
-                                        <div>{book.title}</div>
-                                        <div>{book.author}</div>
-                                        <div>{Profile.profile.nickname}</div> 
-                                        
+                                        <li className="user-all-books-eachBook" key={book.title}>
+                                            <div className="each-book-title">{book.title}</div>
+                                            <div className="each-book-author">{book.author}</div>
+                                            <div className="each-user-nickname">{Profile.profile.nickname}</div> 
                                         </li>
                                     )
                                 })}

@@ -47,7 +47,7 @@ class App extends Component {
   render() {
    
     // run return only after the last fetch (non-scalable solution)
-    if (!!this.props.currentUser===true || this.props.users.length>0 ) {
+    if (!!this.props.currentUser===true || this.props.users.length>=0 ) {
     
       return(
       
