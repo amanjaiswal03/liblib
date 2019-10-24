@@ -19,7 +19,7 @@ class Onboarding1 extends Component {
         return (  
             <div>
                 <h2>Step 1/2</h2>
-                <h5>What's your name? (What do your friends call you?) </h5>
+                <h5>What's your name? </h5>
                 <Name Profiles={this.props.Profiles} />
 
             </div>

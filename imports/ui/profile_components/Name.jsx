@@ -48,6 +48,7 @@ class Name extends Component {
                         <input
                             type="Submit"
                             ref = "submitButton"
+                            value = "Save"
                         />
                         
             

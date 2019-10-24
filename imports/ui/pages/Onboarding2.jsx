@@ -24,13 +24,6 @@ class GetStarted extends Component {
     }
 
 }
- 
-
-
-
-
-
-
 
 
 class Onboarding2 extends Component {
@@ -52,8 +45,8 @@ class Onboarding2 extends Component {
             
             <div>
                 
-                {(this.props.User.profile.books.length <3) ? <h2>Step 2/2</h2> : ''}   
-                {(this.props.User.profile.books.length <3) ? <h6>Add at 3 books you own and want your friends to know about. You can add more books later</h6> : ''}  
+                <div>{(this.props.User.profile.books.length <3) ? <h2>Step 2/2</h2> : ''}</div>
+                {(this.props.User.profile.books.length <3) ? <h6>Add 3 books you have. You can add more books later</h6> : ''}  
                 {(this.props.User.profile.books.length <3) ? <AddBook/> : ''}   
                 {(this.props.User.profile.books.length >2) ? <h2>Setup Completed!</h2> : ''}
                 {(this.props.User.profile.books.length >2) ? <GetStarted/> : ''}
