@@ -38,7 +38,7 @@ class AddBook extends Component {
                 <form onSubmit={this.handleSubmit.bind(this)}>
 
                     <input type = "text" 
-                        placeholder = "Name of the Book" 
+                        placeholder = "Title" 
                         ref = "bookNameInput"
                     />
 
@@ -49,7 +49,9 @@ class AddBook extends Component {
 
                     <input type = "Submit" 
                         ref = "submitButton"
+                        value = "Add"
                     />
+                    
 
                 </form>
                 

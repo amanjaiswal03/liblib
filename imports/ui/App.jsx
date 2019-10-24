@@ -10,8 +10,8 @@ const Login = (lazy(() => ( import ('./pages/Login'))))
 const Onboarding1 = (lazy(() => ( import ('./pages/Onboarding1'))))
 const Onboarding2 = (lazy(() => ( import ('./pages/Onboarding2'))))
 
-
 import Navbar from './Navbar';
+
 
 
 
@@ -19,20 +19,17 @@ import Navbar from './Navbar';
 const LoadingMessage = () => ( "I'm loading...")
 
 
-
+//Entry
 class App extends Component {
 
   constructor(props){
     super(props);
     this.state = {
       showHeader : true,
-
     }
   }
  
-
-
-
+  //Called by Login + Onboarding Pages within their lifecycle
   hideNavigation = () => {
     this.setState({
       showHeader : false,
@@ -43,10 +40,11 @@ class App extends Component {
       showHeader : true,
     })
   }
+
   
   render() {
    
-    // run return only after the last fetch (non-scalable solution)
+    //If Data is there, return
     if (!!this.props.currentUser===true || this.props.users.length>=0 ) {
     
       return(
@@ -54,7 +52,7 @@ class App extends Component {
       <div>
           {this.state.showHeader && <Navbar User={this.props.currentUser}/>}
          
-
+          {/* Lazy Load, Defines Routes and props passed */}
           <Suspense fallback={<LoadingMessage/>}>
 
             <Switch>
@@ -67,7 +65,7 @@ class App extends Component {
 
               
               <Route exact path="/" render={()=>
-              
+                // Protected route
                 (!this.props.currentUser? (
                   <Redirect to="/login" />
                 ):(
@@ -106,6 +104,7 @@ class App extends Component {
 
       );
     }
+    
     return(<div></div>);
   };
   

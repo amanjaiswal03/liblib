@@ -8,13 +8,13 @@ class PublicBookList extends Component {
 
         if (profileList.length>0){ //0 because of filter function, lets test this for  bugs
 
-                return(
-                    <div className='all-users-booklist-container'>
-                        {profileList.map((Profile) => {
-                           
-                           let bookArray = Profile.profile.books;
-                            //console.log(bookArray);
-                           return(
+            return(
+                <div className='all-users-booklist-container'>
+                    {profileList.map((Profile) => {
+                        
+                        let bookArray = Profile.profile.books;
+                        //console.log(bookArray);
+                        return(
                             <ul className="user-all-books">
                                 {bookArray.map((book) => {
                                     return(
@@ -26,20 +26,12 @@ class PublicBookList extends Component {
                                     )
                                 })}
                             </ul>    
+                        )
+                    })}
+                </div> 
 
-                           )
-                        })
-                        
-                        }
-                       
-                    </div>  
-                )
-                        
-                    
-                
-                
-                
-            }
+            )       
+        }
             
         return ( <div></div>)
       

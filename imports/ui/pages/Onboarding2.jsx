@@ -5,8 +5,7 @@ import { BrowserRouter, NavLink } from 'react-router-dom';
 
 
 
-
-// const GetStarted = () => 
+// Component called within Page,renders NavLink, sets profile.didOnboarding to true
 class GetStarted extends Component {
 
     constructor (props){

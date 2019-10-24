@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class Navbar extends Component {
 
+
     render() { 
-        console.log(this.props.User)
-        
+        //Return once data rendered        
         if(this.props.User){
             return (
                 <div>

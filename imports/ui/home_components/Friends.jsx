@@ -15,7 +15,7 @@ class Friends extends Component {
                             
                             return (
                                 
-                                <li key={friend._id} onClick={ ()=>this.props.filterBooksByName(friend._id)} >                      
+                                <li key={friend._id} onClick={()=>this.props.filterBooksByName(friend._id)} >                      
                                     <div>{friend.profile && friend.profile.nickname ? friend.profile.nickname : ''} </div>
                                     <div>has {friend.profile.books.length} books</div>
                                     

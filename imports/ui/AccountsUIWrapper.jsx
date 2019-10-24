@@ -33,8 +33,10 @@ export default class AccountsUIWrapper extends Component {
   render() {
 
     // Just render a placeholder container that will be filled in
-
+    //Sign in btn
     return <span ref="container" />;
+    
+   
 
   }
 
