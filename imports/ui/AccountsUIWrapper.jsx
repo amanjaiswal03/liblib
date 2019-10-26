@@ -34,7 +34,7 @@ export default class AccountsUIWrapper extends Component {
 
     // Just render a placeholder container that will be filled in
     //Sign in btn
-    return <span ref="container" />;
+    return <span className="login-link-text" ref="container" />;
     
    
 

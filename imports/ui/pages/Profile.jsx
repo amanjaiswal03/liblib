@@ -9,24 +9,30 @@ class Profile extends Component {
     
         return (
             
-            <div>
+            <div className="profile-all-content">
                 
                 
-                <div>
+                <div className="profile-header-container">
                     <EditName User={this.props.currentUser} Profiles={this.props.Profiles}/>
                 </div>
                 
                 
             
                     
-                <div>
-                    Add more books
-                    <AddBook/> 
+                <div className="profile-addBook-container" >
+                    <div className="profile-addBook-header">
+                        Got more books? Add them here!
+                    </div> 
+                    
+                    <div className="profile-addBook-content">
+                        <AddBook/> 
+                    </div>
 
                 </div>
                     
-                
-                <MyBookList Profiles={this.props.Profiles} User={this.props.User} />     
+                <div className="profile-own-books-container">
+                    <MyBookList Profiles={this.props.Profiles} User={this.props.User} />     
+                </div>
            
             </div>
         );

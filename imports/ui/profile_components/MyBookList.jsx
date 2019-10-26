@@ -21,21 +21,21 @@ class MyBookList extends Component {
             let bookArray = currentUserData[0].profile.books;
         
             return (
-                <div>
+                <div className="user-own-booklist-container">
                     
                     {bookArray.map((book) => {
                         return(
                                                             
-                            <li key={book.title}>
+                            <div className= "user-own-books-eachBook" key={book.title}>
 
-                                <div>{book.title}</div>
-                                <div>{book.author}</div>
+                                <div className="own-each-book-title" >{book.title}</div>
+                                <div className="own-each-book-author"> {book.author}</div>
 
-                                <button className="delete" onClick={() => this.deleteThisBook(book.title)}>
+                                <button className="books-delete-btn" onClick={() => this.deleteThisBook(book.title)}>
                                     &times;
                                 </button>
 
-                            </li>  
+                            </div>  
                         )
                         
                     })}

@@ -33,12 +33,22 @@ class Login extends Component {
             }else {
             //console.log(this.props.User)
             return(
-                <div>
-                    <h2>liblib Beta</h2>
-                    <h4>See what books your friends have! Yay!</h4>
-                    <AccountsUIWrapper/>
-                    <h6>(It's free)</h6>
+                <div className="login-page-container">
 
+                    <div className="content-container">
+                        <h2 className="login-logo">Rekindle</h2>
+                        <div className="slogan">Discover books your friends have</div>
+                        <div className="slogan2">Upload your own booklist now!</div>
+                       
+                       
+                        <div className="login-link-container">
+                            <div className="login-link">  <AccountsUIWrapper/> </div>
+                        </div>
+                       
+                       
+                        <div className="subline">For CodeUniversity people only</div>
+
+                    </div>
                 </div>
                 
             )

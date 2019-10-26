@@ -37,7 +37,7 @@ class Name extends Component {
             return (  
                 <div>
                     <form onSubmit={this.handleSubmit.bind(this)  } >
-                        <input 
+                        <input className="form-profile-addBook-title-input"
                             type="text"
                             placeholder= "..."
                             defaultValue= {currentName}
@@ -45,7 +45,7 @@ class Name extends Component {
                             ref="nicknameInput"
                         />   
                         
-                        <input
+                        <input className="form-profile-addBook-submit-btn"
                             type="Submit"
                             ref = "submitButton"
                             value = "Save"

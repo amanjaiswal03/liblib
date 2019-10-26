@@ -50,31 +50,36 @@ class EditName extends Component {
  
         return (
 
-        <div>
+            <div className="profile-name-container">
 
-            {this.state.showNameEdit == false ? currentName :''}
+                <div className="profile-name-content">
 
-            {this.state.showNameEdit &&
-                <form onSubmit={this.handleSubmit.bind(this)  } >
-                    <input 
-                        type="text"
-                        placeholder= {"new name"}
-                        // defaultValue= {currentName}
-                        onChange={(e)=> {this.setState({username: e.target.value});}}     
-                        ref="nicknameInput"
-                    />   
-                    
-                    <input
-                        type="Submit"
-                        ref = "submitButton"
-                        value = "Save"
-                    />
-                    
-                </form>
-            }
-            {this.state.showNameEdit == false ? <button onClick={this.editButtonClicked.bind(this)}>edit </button> : ''}
-            
-        </div> 
+                    {this.state.showNameEdit == false ? currentName :''}
+
+                    {this.state.showNameEdit &&
+                        <form onSubmit={this.handleSubmit.bind(this)  } >
+                            <input 
+                                type="text"
+                                placeholder= {"new name"}
+                                // defaultValue= {currentName}
+                                onChange={(e)=> {this.setState({username: e.target.value});}}     
+                                ref="nicknameInput"
+                                />   
+                            
+                            <input
+                                type="Submit"
+                                ref = "submitButton"
+                                value = "Save"
+                                />
+                            
+                        </form>
+                    }
+                </div>
+                <div > 
+                    {this.state.showNameEdit == false ? <button className="name-edit-btn" onClick={this.editButtonClicked.bind(this)}>edit </button> : ''}
+                </div>
+                
+            </div> 
         
         );
        

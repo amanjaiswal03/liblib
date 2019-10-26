@@ -2,6 +2,8 @@
   --nav-width: 100%;
   --nav-height: 10vh;
   --home-container-top-margin: 20vh;
+  --profile-container-top-margin: 15vh;
+  --login-container-top-margin: 10vh;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
   height: var(--nav-height);
 
   background: #FFFFFF;
-  border-bottom: 0.33px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 0.33px solid rgba(0, 0, 0, 0.15);
 
   display: flex;
   justify-content: center;
@@ -38,11 +40,12 @@ body {
 }
 
 .nav-home-btn, .nav-profile-btn{
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 1.3rem;
   text-decoration: none;
   color: #000000;
-  opacity: 0.65;
+  opacity: 0.55;
+  font-weight:400;
 }
 
 .nav-home-btn{
@@ -56,6 +59,7 @@ body {
 
 a#login-name-link{
   text-decoration: none;
+  opacity: 0.7;
 }
 
 
@@ -72,17 +76,38 @@ a#login-name-link{
 
 }
 
-.friends-container{
-  
+.breadcrumbs{
+font-size:1.3rem;
+font-weight: 600;
+opacity: 0.6;
+
 }
+
+.breadcrumbs-show-all-btn{
+border: none;
+background-color: #f4f4f4;
+font-size:1.35rem;
+font-weight: 600;
+color: black;
+padding: 4px;
+
+}
+.breadcrumbs-show-all-btn:hover{
+background-color: #c4c4c4;
+border-radius: 5px;
+
+
+}
+
+
 
 
 .all-users-booklist-container{
   background-color: white;
-  border-radius: 8px;
+  border-radius: 5px;
   padding-top: 5px;
   margin-top: 15px;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
 }
 
 .user-all-books{
@@ -93,7 +118,7 @@ a#login-name-link{
   background: white;
   width: 40vw;
   margin-top: 0px;
-  border-bottom: 0.33px solid rgba(0,0,0,0.5);
+  border-bottom: 0.33px solid rgba(0,0,0,0.15);
   padding: 17px;
   display: flex;
   justify-content: space-between;
@@ -132,23 +157,26 @@ a#login-name-link{
 }
 
 .friends-container{
-  margin-left: 20px;
+  margin-left: 15px;
+  margin-top: 15px;
 }
 
 .members-text{
-  
-}
+  font-size:1.1rem;
+  font-weight: 600;
+  opacity: 0.6;
 
+}
 
 
 .friends-list{
   margin-top: 15px;
-  border-radius: 8px;
+  border-radius: 5px;
   padding-bottom: 70px;
   
   padding-top: 5px;
   background-color: white;
-  box-shadow: 0px 2px 3px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
 }
 
 .each-friend-container{
@@ -160,6 +188,426 @@ a#login-name-link{
 
 .each-friend-li{
   list-style-type: none;
-  border-bottom: 0.33px solid rgba(0,0,0,0.5);
+  border-bottom: 0.33px solid rgba(0,0,0,0.15);
   padding: 17px 10px 17px 0px;
+}
+
+.each-friend-container:hover{
+  background-color: #f0f0f0;
+  
+  border-radius: 10px;
+
+
+}
+
+
+/* ============== Profile ================ */
+
+.profile-all-content{
+  margin-top: var(--profile-container-top-margin);
+  
+  
+}
+
+.profile-header-container{
+
+  display: flex;
+  
+  
+  
+
+}
+
+.profile-name-container{
+  background: white;
+  margin: auto;
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  display: flex;
+  justify-content: space-between;
+  padding :20px 35px;
+  width:40vw;
+  height:2vw;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+}
+
+.profile-name-content{
+  align-self: center;
+  font-size: 22px;
+  font-weight: 550;
+  opacity: 0.8;
+}
+
+.name-edit-btn{
+  border-radius: 6px;
+  background-color: white;
+  font-size:1.35rem;
+  font-weight: 200;
+  color: black;
+  opacity: 0.85;
+  border-width: 0.55px;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 4px 20px ;
+  
+  
+}
+
+.name-edit-btn:hover{
+  background-color: #c4c4c4;
+  
+  }
+
+
+.profile-addBook-container{
+  background: white;
+  margin: auto;
+  margin-top: 3vw;
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  /* display: flex; */
+  justify-content: space-between;
+  padding :15px 25px;
+  width:39vw;
+  height:6vw;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+
+}
+
+.profile-addBook-header{
+
+margin-top: 2px;
+margin-bottom: 18px ;
+opacity: 0.9;
+}
+
+
+.form-profile-addBook{
+  /* padding: 5px;   */
+ display:flex;
+ justify-content: space-between;
+}
+
+.form-profile-addBook-title-input,.form-profile-addBook-author-input{
+  box-sizing: border-box;
+  margin-right: 3px;
+  border-radius: 4px;
+  border: Solid 1px rgba(235,235,235);
+  display: auto;
+  padding: 13px 15px;
+  font-size: 1.05rem;
+
+}
+
+.form-profile-addBook-title-input:focus, .form-profile-addBook-author-input:focus{
+  border: Solid 1px rgba(255, 89, 89, 0.5);
+
+}
+
+
+/* 
+.form-profile-addBook-author-input{
+
+} */
+
+.form-profile-addBook-submit-btn{
+  border-radius: 4px;
+  background-color:rgba(255, 89, 89, 1);
+  font-size:1.25rem;
+  font-weight: 400;
+  color: white;
+  margin-left: 5px;
+  height: 47px;
+  border-width: 0px;
+  padding: 4px 25px ;
+
+  
+}
+
+
+
+
+
+.profile-own-books-container{
+  background: white;
+  margin: auto;
+  margin-top: 1vw;
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  /* display: flex; */
+  justify-content: space-between;
+  padding :15px 25px;
+  width:39vw;
+  
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+  justify-content: center;
+
+}
+
+
+.user-own-booklist-container{
+  /* background-color: white; */
+  border-radius: 5px;
+  padding-top: 5px;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+
+
+
+.user-own-books-eachBook{
+  margin:auto;
+  background: white;
+  width: 35vw;
+  border-bottom: 0.33px solid rgba(0,0,0,0.15);
+  padding: 17px 0px;
+  display: flex;
+  
+}
+
+.own-each-book-title{
+ align-self: center;
+ width: 45%
+}
+
+.own-each-book-author{
+  align-self:center;
+  
+  width:52%
+}
+
+
+.books-delete-btn{
+  border: none;
+  background-color:white;
+  font-size:1.35rem;
+  font-weight: 100;
+  color: black;
+  width: 3%;
+  /* padding: 4px; */
+}
+
+
+.books-delete-btn:hover{
+background-color: #c4c4c4;
+border-radius: 200px;
+}
+
+
+
+/* ------onboarding------- */
+
+
+.onboarding-content-container{
+ 
+}
+
+
+.onboarding-addName-container{
+  background: white;
+  margin: auto;
+  margin-top: 1vw;
+  
+
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  /* display: flex; */
+  justify-content: space-between;
+  padding :15px 25px;
+  width:23vw;
+  height:5vw;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+
+}
+
+
+
+
+
+
+.onboarding2-addName-container{
+  background: white;
+  margin: auto;
+  margin-top: 1vw;
+  
+
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  /* display: flex; */
+  justify-content: space-between;
+  padding :15px 25px;
+  width:40vw;
+  height:12vw;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+.onboading-addName-header{
+
+  margin-top: 2px;
+  margin-bottom: 16px ;
+  opacity: 0.9;
+  
+  }
+  
+
+
+.onboading2-addName-header{
+
+  margin-top: 2px;
+  margin-bottom: 18px ;
+  opacity: 0.9;
+  
+  }
+  
+
+
+
+
+
+.onboarding-step-header{
+  margin:auto;
+  display:flex;
+  width: 25vw;
+  margin-top: 3vw;
+}
+
+
+.onboarding2-step-header{
+  margin:auto;
+  display:flex;
+  width: 41vw;
+  margin-top: 3vw;
+}
+
+
+
+.onboarding2-books-container{
+  background: white;
+  margin: auto;
+  margin-top: 3vw;
+  
+  /* border-bottom: 0.33px solid rgba(0,0,0,0.5); */
+  /* padding: 17px; */
+  /* display: flex; */
+  justify-content: space-between;
+  /* padding :15px 25px; */
+  width:39vw;
+  
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  align-content: center;
+  border-radius: 5px;
+  justify-content: center;
+
+}
+
+
+.onboarding2-start-btn{
+
+  border-radius: 4px;
+  background-color:rgba(255, 89, 89, 1);
+  font-size:1.4rem;
+  font-weight: 400;
+  color: white;
+  /* margin-left: 5px; */
+  height: 47px;
+  border-width: 0px;
+  padding: 8px 30px ;
+  margin-top: 15vw;
+  text-decoration: none;
+  
+}
+
+
+
+/* -------login page -------- */
+
+
+.login-page-container{
+  margin-top: var(--login-container-top-margin);
+  display: flex;
+  justify-content: center;
+
+}
+
+.content-container{
+
+
+}
+
+.login-logo{
+  font-size: 2.2rem;
+  
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: #FF5959;
+  margin-bottom: 3vw;
+}
+
+.slogan{
+  font-size: 3.2rem;
+  letter-spacing: -0.04em;
+  font-weight: bold;
+  margin-bottom:1.4vw;
+}
+
+
+.slogan2{
+
+  font-weight: 500;
+  font-size: 1.6rem;
+  
+}
+
+
+.login-link-container{
+  background: white;
+  margin: auto;
+  margin-top: 3vw;
+
+  justify-content: space-between;
+  padding :40px 25px;
+  width:10vw;
+  height:4vw;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  align-content: center;
+  border-radius: 5px;
+}
+
+.login-link-text{
+text-decoration: none;
+}
+
+.subline{
+margin-top: 0.7vw ;
+font-size: 0.75rem;
+}
+
+
+.slogan2,.login-link,.slogan,.subline,.login-logo,.login-link-text{
+text-align: center;
+
+
 }

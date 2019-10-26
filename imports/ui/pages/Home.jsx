@@ -37,7 +37,7 @@ class Home extends Component {
 
                         <div className='feed-container'>
                             <div className="breadcrumbs">
-                                <button onClick={this.showAllBooks.bind(this)}>All Books</button>
+                                <button className= "breadcrumbs-show-all-btn"onClick={this.showAllBooks.bind(this)}>All Books</button>
                                 {this.state.filtered == true? 
                                     this.state.filteredProfiles.map((Profile) => {
                                         return(

@@ -35,19 +35,19 @@ class AddBook extends Component {
        
         return (
             <div>
-                <form onSubmit={this.handleSubmit.bind(this)}>
+                <form className="form-profile-addBook" onSubmit={this.handleSubmit.bind(this)}>
 
-                    <input type = "text" 
+                    <input className="form-profile-addBook-title-input" type = "text" 
                         placeholder = "Title" 
                         ref = "bookNameInput"
                     />
 
-                    <input type = "text" 
+                    <input className="form-profile-addBook-author-input"type = "text" 
                         placeholder = "Author" 
                         ref = "authorNameInput"
                     />
 
-                    <input type = "Submit" 
+                    <input className="form-profile-addBook-submit-btn" type = "Submit" 
                         ref = "submitButton"
                         value = "Add"
                     />

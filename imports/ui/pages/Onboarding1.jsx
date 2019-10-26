@@ -17,13 +17,19 @@ class Onboarding1 extends Component {
     
     render() { 
         return (  
-            <div>
-                <h2>Step 1/2</h2>
-                <h5>What's your name? </h5>
-                <Name Profiles={this.props.Profiles} />
+            
 
-            </div>
-           
+                <div className="onboarding-content-container">
+                    <div className="onboarding-step-header"> Step 1/2 </div>
+
+                    <div className="onboarding-addName-container">
+
+                        <div className="onboading-addName-header">What's your name? </div>
+                        <Name Profiles={this.props.Profiles} />
+                    </div>
+
+                </div>
+          
         );
     }
 }
