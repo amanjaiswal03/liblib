@@ -73,7 +73,7 @@ class App extends Component {
                     <Home Profiles={this.props.users} User={this.props.currentUser}/>
                   </div> )) }/>              
               
-              <Route exact path="/profile/:id" render={()=>
+              <Route exact path="/profile/" render={()=>
                 (!this.props.currentUser? (
                   <Redirect to="/login" />
                 ):(

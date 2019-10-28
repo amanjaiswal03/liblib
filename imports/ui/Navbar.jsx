@@ -14,8 +14,8 @@ class Navbar extends Component {
 
                     <nav className="nav">
                         <div className="nav-logo">Rekindle</div>
-                        <NavLink className="nav-home-btn" to='/'>Home</NavLink>   
-                        <NavLink className="nav-profile-btn" to='/profile/:id'>{this.props.User.profile.nickname}</NavLink>             
+                        <NavLink activeClassName="nav-home-btn-active" className="nav-home-btn" exact to='/'>Home</NavLink>   
+                        <NavLink activeClassName="nav-home-btn-active" className="nav-profile-btn" exact to='/profile/'>{this.props.User.profile.nickname}</NavLink>             
                         <AccountsUIWrapper className="nav-uiWrapper"/>
                     </nav>
 

@@ -37,7 +37,7 @@ class Login extends Component {
 
                     <div className="content-container">
                         <h2 className="login-logo">Rekindle</h2>
-                        <div className="slogan">Discover books your friends have</div>
+                        <div className="slogan">Exchange books with your friends</div>
                         <div className="slogan2">Upload your own booklist now!</div>
                        
                        

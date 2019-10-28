@@ -47,7 +47,7 @@ class Home extends Component {
                                 }
                             </div>
                             {/* renders either all profiles or one profile (triggered in Friends Component)  */}
-                            <PublicBookList Profiles={this.state.filteredProfiles}/>
+                            <PublicBookList Profiles={this.state.filteredProfiles} User={this.props.User}/>
                         </div>
 
                         

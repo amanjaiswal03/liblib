@@ -60,7 +60,7 @@ class EditName extends Component {
                         <form onSubmit={this.handleSubmit.bind(this)  } >
                             <input 
                                 type="text"
-                                placeholder= {"new name"}
+                                placeholder= {"Your name"}
                                 // defaultValue= {currentName}
                                 onChange={(e)=> {this.setState({username: e.target.value});}}     
                                 ref="nicknameInput"

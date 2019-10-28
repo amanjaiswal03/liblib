@@ -19,7 +19,7 @@ class AddBook extends Component {
 
             // Insert the data in database         
         
-            Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
+            Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(), 'requestedBy': [] })}})
            // Meteor.users.insert({$set: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
             
          

@@ -15,9 +15,10 @@ body {
 /* ============== Nav Bar ================ */
 
 .nav{
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
+  z-index: 1;
 
   width: var(--nav-width);
   height: var(--nav-height);
@@ -52,6 +53,11 @@ body {
   /* border-radius: 3px; */
   margin: 0 20px;
 }
+.nav-home-btn-active{
+  text-decoration: none;
+  opacity: 0.85;
+}
+
 
 .nav-profile-btn{
   margin-right: 20%;
@@ -127,6 +133,7 @@ border-radius: 5px;
 .each-book-info{
   font-family: Montserrat, sans-serif;
   color: black;
+  width:45%;
 }
 
 .each-book-title{
@@ -141,19 +148,71 @@ border-radius: 5px;
   font-size: 0.8rem;
 }
 
+
+
 .each-user-nametag{
   display: flex;
   align-items: center;
   background: rgba(0,0,0,0.15);
   /* background-color: black; */
   padding: 5px 25px;
+  margin: 7px 0px;
   border-radius: 4px;
-  /* background-opacity: 0.15; */
+  opacity: 0.5;
+  
+
+  
 }
+
+
+.request-borrow-btn{
+  border-radius: 6px;
+  background: white;
+  font-size:1.35rem;
+  font-weight: 400;
+  color: black;
+  opacity: 0.75;
+  border-width: 0.55px;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px ;
+  
+}
+
+.request-borrow-btn:hover{
+  border-radius: 6px;
+  background-color:black;
+  font-size:1.35rem;
+  font-weight: 400;
+  color: white;
+  opacity: 0.95;
+  border-width: 0.55px;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px ;
+  
+}
+
+.request-unborrow-btn{
+  border-radius: 6px;
+  background: black;
+  font-size:1.35rem;
+  font-weight: 400;
+  color: White;
+  opacity: 1;
+  border-width: 0.55px;
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px ;
+
+}
+
+
+
+
+
 
 .each-user-nickname{
   color: black;
   opacity: 0.75;
+  
 }
 
 .friends-container{
@@ -598,7 +657,13 @@ border-radius: 200px;
 
 .login-link-text{
 text-decoration: none;
+
 }
+
+.login-link{
+  text-align: left;
+}
+
 
 .subline{
 margin-top: 0.7vw ;
@@ -606,8 +671,19 @@ font-size: 0.75rem;
 }
 
 
-.slogan2,.login-link,.slogan,.subline,.login-logo,.login-link-text{
+.slogan2, .slogan,.subline,.login-logo{
 text-align: center;
 
 
+}
+
+
+/* ----Accounts UI wrapper Stuff -------*/
+#login-dropdown-list {
+
+}
+
+#login-buttons a, .accounts-dialog a {
+  cursor: pointer;
+  text-decoration: none;
 }
