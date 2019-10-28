@@ -75,9 +75,11 @@ class EditName extends Component {
                         </form>
                     }
                 </div>
-                <div > 
+                
+                {/* not until more function than edit name
+                 <div > 
                     {this.state.showNameEdit == false ? <button className="name-edit-btn" onClick={this.editButtonClicked.bind(this)}>edit </button> : ''}
-                </div>
+                </div> */}
                 
             </div> 
         

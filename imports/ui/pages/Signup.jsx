@@ -6,7 +6,8 @@ import { Accounts } from 'meteor/accounts-base'
 import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 
-import schema from '../../api/loginformschema.js';
+
+import schema from '../../api/signupformschema.js';
 
 import {
     AutoField,
@@ -17,7 +18,7 @@ import {
 
 
 
-class Login extends Component {
+class Signup extends Component {
     
     componentDidMount() {
         this.props.hideNavigation();
@@ -28,32 +29,9 @@ class Login extends Component {
        
     }
 
-    // function SignUpForm() {
-    //     return (
-    //       <AutoForm
-    //         schema={schema}
-    //         onSubmit={model => alert(JSON.stringify(model, null, 2))}
-    //       />
-    //     );
-
-
     handleSubmit(data){
-        // event.preventDefault();
-
-        // if (typeof selector === 'string')
-        // if (!selector.includes('@'))
-        //   selector = {password: selector};
-        // else
-        //   selector = {email: selector};
-         console.log(data);
-
-        // // const email= ReactDOM.findDOMNode(this.refs.email).value.trim();
-        // // const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-    
-        // console.log(data);
-        Meteor.loginWithPassword(data.email, data.password, function(){
-            console.log("You initiated the login process.");
-        })
+      
+        Accounts.createUser(data);
     }
 
     render(){
@@ -77,7 +55,7 @@ class Login extends Component {
                     <div className="content-container">
                         <h2 className="login-logo">Rekindle</h2>
                         <div className="slogan">Exchange books with your friends</div>
-                        <div className="slogan2">Borrow your first book now!</div>
+                        <div className="slogan2">Upload your own booklist now!</div>
                        
 {/*                        
                         <div className="login-link-container">
@@ -85,7 +63,7 @@ class Login extends Component {
                         </div>
                         */}
 
-                        <div className="login-form-container">
+                        <div className="signup-form-container">
 
                             <AutoForm ref={'ref'} schema={schema} onSubmit={data => this.handleSubmit(data)} >
                                 {/* <h4></h4> */}
@@ -94,19 +72,19 @@ class Login extends Component {
                                 {/* <AutoField name="firstname" placeholder='First name'/> 
                                 <AutoField name="lastname" placeholder='Last name'/> 
                                  */}
-                                <AutoField name="password" placeholder='Password' ref="password" />
+                                <AutoField name="password" placeholder='Create a password' ref="password" />
 
                                 {/* <AutoField name="repassword" placeholder='reenter your password' ref="repassword" /> */}
                                 {/* <ErrorsField name="repassword">
                                     <span>Passwords don't match</span>
                                 </ErrorsField> */}
 
-                                <SubmitField  className="button" value="Log in" />
+                                <SubmitField  className="button" color="black" value="Get in there!" />
                             </AutoForm>
 
                             <div className="Signup-form-subline-switch-container">
-                                New to Rekindle? 
-                                <NavLink activeClassName="nav-home-btn-active" className="nav-home-btn" exact to='/signup'>Sign up</NavLink>   
+                             Already have a Rekindle account?    
+                             <NavLink activeClassName="nav-home-btn-active" className="nav-home-btn" exact to='/login'>Log in</NavLink>   
                             </div>
                         </div>
 
@@ -125,4 +103,4 @@ class Login extends Component {
 }
 
 
-export default Login;
+export default Signup;

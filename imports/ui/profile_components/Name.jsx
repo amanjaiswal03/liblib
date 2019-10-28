@@ -40,7 +40,7 @@ class Name extends Component {
                         <input className="form-profile-addBook-title-input"
                             type="text"
                             placeholder= "..."
-                            defaultValue= {currentName}
+                            defaultValue= ""
                             onChange={(e)=> {this.setState({username: e.target.value});}}     
                             ref="nicknameInput"
                         />   

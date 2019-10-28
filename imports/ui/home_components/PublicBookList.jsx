@@ -82,7 +82,7 @@ class BorrowButton extends Component {
        
         // Meteor.users.update({_id : this.props.ProfileId} , {$set: { 'profile$[].books.[book_field].requestedBy' : this.props.User._id }},
         // {arrayFilters: [{ 'profile.books.title' : this.props.Book.title }]}
-        );
+        //);
         this.setState((currentState) => ({
 
             clickedBorrow: !currentState.clickedBorrow,

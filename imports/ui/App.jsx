@@ -7,8 +7,10 @@ import { withRouter, Redirect, BrowserRouter} from 'react-router-dom';
 const Home = (lazy(() => ( import ('./pages/Home'))))
 const Profile = (lazy(() => ( import ('./pages/Profile'))))
 const Login = (lazy(() => ( import ('./pages/Login'))))
+const Signup = (lazy(() => ( import ('./pages/Signup'))))
 const Onboarding1 = (lazy(() => ( import ('./pages/Onboarding1'))))
 const Onboarding2 = (lazy(() => ( import ('./pages/Onboarding2'))))
+
 
 import Navbar from './Navbar';
 
@@ -62,7 +64,12 @@ class App extends Component {
                     <Login hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser}/>
                   </div> ) }}/>        
               
-
+              <Route exact path="/signup" render={()=>{
+                return(
+                  <div>
+                    <Signup hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser}/>
+                  </div> ) }}/>        
+              
               
               <Route exact path="/" render={()=>
                 // Protected route
