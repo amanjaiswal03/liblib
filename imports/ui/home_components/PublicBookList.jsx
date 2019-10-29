@@ -8,65 +8,55 @@ import React, { Component } from 'react';
 
 class PublicBookList extends Component {
 
-// constructor(props){
-//     super(props);
-//     this.state={
-//         clickedBorrow: false,
-//         clickedUnborrow: false,
-//     }
-
-// }
-
-
-
     render() { 
 
-        let profileList = this.props.Profiles;
+        let bookList = this.props.Books;
+       
 
-        if (profileList.length>0){
+        if (bookList.length>0){
 
+            // let filteredBooks = bookList.filter((x) => {return (x.owner == this.props.Profiles.nickname)});
+            
             return(
                 <div className='all-users-booklist-container'>
-                    {profileList.map((Profile) => {
-                        
-                        let bookArray = Profile.profile.books;
-                        //console.log(bookArray);
+                    {bookList.map((book) => {
                         return(
-                            <div className="user-all-books">
-                                
-                                {bookArray.map((book) => {
-                                    return(
-                                        <div className="user-all-books-eachBook" key={book.title}>
-                                            <div className="each-book-info">
-                                                <div className="each-book-title">{book.title}</div>
-                                                <div className="each-book-author">by {book.author}</div>
-                                            </div>
+                            <div className="user-all-books" key={book._id}>
+                                <div className="user-all-books-eachBook" >
+                                    <div className="each-book-info">
+                                        <div className="each-book-title">{book.title}</div>
+                                        <div className="each-book-author">by {book.author}</div>
+                                    </div>
 
-                                            
-                                            <div className="each-user-nametag">
-                                                <div className="each-user-nickname">{Profile.profile.nickname}</div> 
-                                            </div>
+                                    
+                                    <div className="each-user-nametag">
+                                        <div className="each-user-nickname">{book.ownerName}</div> 
+                                    </div>
 
-                                            <div>
-                                                <BorrowButton ProfileId={Profile._id} User={this.props.User} BookUnit={book.requestedBy} Book={book}/>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
+                                    <div>
+                                        {this.props.User.profile.hasRequested == false && this.props.User._id != book.owner ? <BorrowButton User={this.props.User} Book={book} Requests={this.props.Requests} />
+                                        : 
+                                        <div>
+                                            <button className="request-borrow-btn-hidden" onClick={console.log("you just tried to borow your own book, yo")}>Request</button> 
+                                        </div>}
+                                    </div>
+                                </div>    
                             </div>    
                         )
                     })}
                 </div> 
-
             )       
         }
-            
-        return ( <div></div>)
-      
-    }
+    }   
 }
 
+
+
+
+
+
 class BorrowButton extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -76,13 +66,10 @@ class BorrowButton extends Component {
 
     handleBorrowClick(){
 
-        console.log(this.props.Book);
-        // console.log(profile.books.title);
-        // console.log(this.props.profile.books.book);
-       
-        // Meteor.users.update({_id : this.props.ProfileId} , {$set: { 'profile$[].books.[book_field].requestedBy' : this.props.User._id }},
-        // {arrayFilters: [{ 'profile.books.title' : this.props.Book.title }]}
-        //);
+        Meteor.call('requests.insert', this.props.Book);
+        Meteor.users.update({_id : Meteor.userId()}, {$set: {'profile.hasRequested': true}})
+
+
         this.setState((currentState) => ({
 
             clickedBorrow: !currentState.clickedBorrow,
@@ -90,17 +77,23 @@ class BorrowButton extends Component {
         }));
     }
 
+   
+
     render() { 
+        
         return ( 
+
             <div>
-                {this.state.clickedBorrow == false? <button className="request-borrow-btn" onClick={this.handleBorrowClick.bind(this)}>Borrow</button> :
-                <button className="request-unborrow-btn" onClick={this.handleBorrowClick.bind(this)}>Requested</button> }
+                <button className="request-borrow-btn" onClick={this.handleBorrowClick.bind(this)}>Request</button> 
+             
             </div>
-         );
+        );
     }
+
 }
  
 
+// <button className="request-unborrow-btn" onClick={this.handleBorrowClick.bind(this)}>Requested</button>
 
 
  

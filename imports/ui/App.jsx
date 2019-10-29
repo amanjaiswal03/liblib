@@ -3,6 +3,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Route, Switch } from 'react-router';
 import { withRouter, Redirect, BrowserRouter} from 'react-router-dom';
 
+import { Books } from '../api/books';
+import { Requests } from '../api/requests';
+
 
 const Home = (lazy(() => ( import ('./pages/Home'))))
 const Profile = (lazy(() => ( import ('./pages/Profile'))))
@@ -13,6 +16,8 @@ const Onboarding2 = (lazy(() => ( import ('./pages/Onboarding2'))))
 
 
 import Navbar from './Navbar';
+
+
 
 
 
@@ -70,14 +75,14 @@ class App extends Component {
                     <Signup hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser}/>
                   </div> ) }}/>        
               
-              
+
               <Route exact path="/" render={()=>
                 // Protected route
                 (!this.props.currentUser? (
                   <Redirect to="/login" />
                 ):(
                   <div>
-                    <Home Profiles={this.props.users} User={this.props.currentUser}/>
+                    <Home Profiles={this.props.users} User={this.props.currentUser} Books={this.props.books} Requests={this.props.requests}/>
                   </div> )) }/>              
               
               <Route exact path="/profile/" render={()=>
@@ -85,7 +90,7 @@ class App extends Component {
                   <Redirect to="/login" />
                 ):(
                   <div>
-                    <Profile Profiles={this.props.users} User = {this.props.currentUser}/>
+                    <Profile Profiles={this.props.users} User = {this.props.currentUser} Books={this.props.books}/>
                   </div> ))}/>
 
 
@@ -98,7 +103,7 @@ class App extends Component {
               <Route exact path="/createProfile/2" render={()=>{
                 return(
                   <div>
-                    <Onboarding2 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users}/>
+                    <Onboarding2 hideNavigation={this.hideNavigation} unhideNavigation={this.unhideNavigation} User={this.props.currentUser} Profiles={this.props.users} Books={this.props.books}/>
                   </div> ) }}/>         
 
 
@@ -128,8 +133,15 @@ class App extends Component {
 
 
 export default withTracker(() => {
+
+  Meteor.subscribe('books');
+  Meteor.subscribe('requests');
+
+
   return {
- 
+
+    requests: Requests.find({}).fetch(),
+    books: Books.find({}).fetch(),
     users: Meteor.users.find({}).fetch(),
     currentUser: Meteor.user(),
   };

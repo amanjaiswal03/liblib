@@ -3,17 +3,17 @@ import { Mongo } from 'meteor/mongo';
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Random } from 'meteor/random';
 
 
-export const Books = new Mongo.Collection('books',{idGeneration: 'STRING'});
+
+export const Requests = new Mongo.Collection('requests', {idGeneration: 'STRING'});
 
 
 
 if (Meteor.isServer) {
     //this code only runs on the server
-    Meteor.publish('books', function booksPublication() {
-        return Books.find({
+    Meteor.publish('requests', function booksPublication() {
+        return Requests.find({
             // $or: [
             //     { private: { $ne: true } },
             //     { owner: this.userId},
@@ -26,7 +26,7 @@ if (Meteor.isServer) {
 Meteor.methods({
 
     //might need .update 
-    'books.insert'(title,author) {
+    'requests.insert'(book) {
         // check(title,author, String);
 
         //test if user is logged in before inserting a task
@@ -34,23 +34,28 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
 
-        Books.insert({
-            
-            title,
-            author,
+        Requests.insert({
+           
             createdAt: new Date(),
 
-            owner: this.userId,
-            ownerName: Meteor.users.findOne(this.userId).profile.nickname,
+            bookId: book._id,
+            title: book.title,
+            author: book.author,
+            owner: book.owner,
+            ownerName: book.ownerName,
+
+            requestBy: this.userId,
+            requestByUsername: Meteor.users.findOne(this.userId).profile.nickname,
+
         });
     },
 
 
 
-    'books.remove' (bookId) {
-        check(bookId, String);
+    'requests.remove' (requestId) {
+        check(requestId, String);
 
-        Books.remove(bookId);
+        Requests.remove(requestId);
     },
 
 

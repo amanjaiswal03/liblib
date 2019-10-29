@@ -41,19 +41,24 @@ class Onboarding2 extends Component {
 
 
     render() { 
+
+        let bookList = this.props.Books;
+        let currentUserBooks = bookList.filter((x) => {return (x.owner == Meteor.userId())});
+
+
         return ( 
             
             <div className="onboarding2-addName-container">
                 
-                <div>{(this.props.User.profile.books.length <3) ? <div className="onboarding2-step-header">Step 2/2 </div>: ''}</div>
-                {(this.props.User.profile.books.length <3) ? <h6>Add 3 books you have. You can add more books later</h6> : ''}  
-                {(this.props.User.profile.books.length <3) ? <AddBook/> : ''}   
-                {(this.props.User.profile.books.length >2) ? <h4>Setup Completed!</h4> : ''}
+                <div>{(currentUserBooks.length <3) ? <div className="onboarding2-step-header">Step 2/2 </div>: ''}</div>
+                {(currentUserBooks.length <3) ? <h6>Add 3 books you have. You can add more books later</h6> : ''}  
+                {(currentUserBooks.length <3) ? <AddBook/> : ''}   
+                {(currentUserBooks.length >2) ? <h4>Setup Completed!</h4> : ''}
                 <div >
-                    {(this.props.User.profile.books.length >2) ? <GetStarted/> : ''}
+                    {(currentUserBooks.length >2) ? <GetStarted/> : ''}
                 </div>
                 <div className="onboarding2-books-container">
-                    {(this.props.User.profile.books.length <3) ? <MyBookList Profiles={this.props.Profiles} User={this.props.User}/> : ''}   
+                    {(currentUserBooks.length <3) ? <MyBookList Profiles={this.props.Profiles} User={this.props.User} Books={this.props.Books} /> : ''}   
                 </div> 
                 
             </div>

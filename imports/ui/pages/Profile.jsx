@@ -31,7 +31,7 @@ class Profile extends Component {
                 </div>
                     
                 <div className="profile-own-books-container">
-                    <MyBookList Profiles={this.props.Profiles} User={this.props.User} />     
+                    <MyBookList Profiles={this.props.Profiles} User={this.props.User} Books={this.props.Books} />     
                 </div>
            
             </div>

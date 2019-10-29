@@ -7,31 +7,33 @@ class MyBookList extends Component {
         super(props);
     }
 
-    deleteThisBook(bookTitle) {
-        //Books.remove(bookTitle);
-        Meteor.users.update({_id : Meteor.userId()}, {$pull: {'profile.books': ({'title': bookTitle})}})
+    deleteThisBook(bookId) {
+
+        Meteor.call('books.remove', bookId);
+        // Books.remove(bookId);
+        // Meteor.users.update({_id : Meteor.userId()}, {$pull: {'profile.books': ({'title': bookTitle})}})
     }
 
     renderBooks(){        
-            
-        let profileList = this.props.Profiles;
+             
+        let bookList = this.props.Books;
         
-        if (profileList.length>0){
-            let currentUserData = profileList.filter((x) => {return (x._id == Meteor.userId())});
-            let bookArray = currentUserData[0].profile.books;
+        if (bookList.length>0){
+            let currentUserBooks = bookList.filter((x) => {return (x.owner == Meteor.userId())});
+        
         
             return (
                 <div className="user-own-booklist-container">
                     
-                    {bookArray.map((book) => {
+                    {currentUserBooks.map((book) => {
                         return(
                                                             
-                            <div className= "user-own-books-eachBook" key={book.title}>
+                            <div className= "user-own-books-eachBook" key={book._id}>
 
                                 <div className="own-each-book-title" >{book.title}</div>
                                 <div className="own-each-book-author"> {book.author}</div>
 
-                                <button className="books-delete-btn" onClick={() => this.deleteThisBook(book.title)}>
+                                <button className="books-delete-btn" onClick={() => this.deleteThisBook(book._id)}>
                                     &times;
                                 </button>
 

@@ -9,23 +9,23 @@ class AddBook extends Component {
         event.preventDefault();
      
         // Find the text field via the React ref
-        const bookName = ReactDOM.findDOMNode(this.refs.bookNameInput).value.trim();
+        const title = ReactDOM.findDOMNode(this.refs.titleNameInput).value.trim();
         const author = ReactDOM.findDOMNode(this.refs.authorNameInput).value.trim();
 
         
         // If book name & author fields are not empty
         // Later: Check for owner name as well
-        if (bookName && author){
-
-            // Insert the data in database         
-        
-            Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(), 'requestedBy': [] })}})
-           // Meteor.users.insert({$set: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
+        if (title && author){
             
+            // Insert the data in database
+            // Meteor.users.update({_id : Meteor.userId()}, {$push: {'profile.books': ({'title': title, 'author': author, 'createdAt': new Date(), 'requestedBy': [] })}})
+            // Meteor.users.insert({$set: {'profile.books': ({'title': bookName, 'author': author, 'createdAt': new Date(),})}})
+            Meteor.call('books.insert', title, author);
          
+
             
             // Then Clear form
-            ReactDOM.findDOMNode(this.refs.bookNameInput).value = '';
+            ReactDOM.findDOMNode(this.refs.titleNameInput).value = '';
             ReactDOM.findDOMNode(this.refs.authorNameInput).value = '';
         }
       }
@@ -39,7 +39,7 @@ class AddBook extends Component {
 
                     <input className="form-profile-addBook-title-input" type = "text" 
                         placeholder = "Title" 
-                        ref = "bookNameInput"
+                        ref = "titleNameInput"
                     />
 
                     <input className="form-profile-addBook-author-input"type = "text" 

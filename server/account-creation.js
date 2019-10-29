@@ -7,7 +7,7 @@ Accounts.onCreateUser(function(options, user) {
     user.profile.nickname = '';
     user.profile.books = [];   
     user.profile.didOnboarding = false;
-    
+    user.profile.hasRequested = false;
     // Returns the user object
     return user;
  });
