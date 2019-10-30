@@ -12,6 +12,7 @@ class MyBookList extends Component {
         Meteor.call('books.remove', bookId);
         // Books.remove(bookId);
         // Meteor.users.update({_id : Meteor.userId()}, {$pull: {'profile.books': ({'title': bookTitle})}})
+        Meteor.users.update({ _id: Meteor.userId()}, {$inc: {'profile.ownBooksCounter': -1 }});
     }
 
     renderBooks(){        

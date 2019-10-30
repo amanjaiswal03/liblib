@@ -71,11 +71,37 @@ a#login-name-link{
 
 /* ============== All Books ================ */
 
+
+
+
 .home-all-content{
   margin-top: var(--home-container-top-margin);
   display: flex;
   justify-content: center;
 }
+
+.home-container{
+  display: block;
+  width: auto;
+}
+
+.home-main-container{
+  display: flex;
+  
+}
+
+
+/* ---- Feed / home ---- */
+
+
+.feed-col{
+
+display:block;
+float: left;
+position: relative;
+}
+
+
 
 .feed-container{
   
@@ -101,10 +127,7 @@ padding: 4px;
 .breadcrumbs-show-all-btn:hover{
 background-color: #c4c4c4;
 border-radius: 5px;
-
-
 }
-
 
 
 
@@ -159,12 +182,10 @@ border-radius: 5px;
   margin: 7px 0px;
   border-radius: 4px;
   opacity: 0.5;
-  
-
-  
 }
 
 
+/* ./ buttons */
 .request-borrow-btn{
   border-radius: 6px;
   background: white;
@@ -229,20 +250,25 @@ border-radius: 5px;
 
 }
 
-
-
-
-
-
 .each-user-nickname{
   color: black;
   opacity: 0.75;
   
 }
 
+
+
+/*  -----friends / home ----- */
+
+
 .friends-container{
   margin-left: 15px;
   margin-top: 15px;
+  /* position: fixed; */
+
+  position: sticky;
+  top: var(--nav-height);
+  float: right;
 }
 
 .members-text{
@@ -316,6 +342,9 @@ border-radius: 5px;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
   align-content: center;
   border-radius: 5px;
+  position: sticky;
+  top: var(--nav-height);
+  
 }
 
 .profile-name-content{
@@ -795,6 +824,7 @@ text-align: center;
   display: flex;
   /* border-bottom: 0.33px solid rgba(0,0,0,0.15); */
   padding: 5px 0px;
+  justify-content: space-between;
   
   
 }
@@ -809,7 +839,7 @@ text-align: center;
 
 
 .home-request-notification-text{
- font-size: 0.85rem;
+ font-size:  1rem;
  opacity: 0.85;
  /* margin-top: 1vw; */
 }
@@ -821,3 +851,24 @@ text-align: center;
 .books-delete-btn{
   opacity: 0.7 !important ;
 }
+
+
+
+.request-delete-btn{
+  border: none;
+  background-color:white;
+  font-size:0.9rem;
+  font-weight: 100;
+  color: black;
+  width: auto;
+  padding: 6px;
+}
+
+
+.request-delete-btn:hover{
+background-color: red;
+border-radius: 5px;
+color: white;
+
+}
+

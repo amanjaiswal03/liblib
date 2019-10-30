@@ -25,10 +25,8 @@ if (Meteor.isServer) {
 
 Meteor.methods({
 
-    //might need .update 
     'books.insert'(title,author) {
-        // check(title,author, String);
-
+        // possible to check the input here...
         //test if user is logged in before inserting a task
         if (! this.userId) {
             throw new Meteor.Error('not-authorized');
@@ -45,28 +43,11 @@ Meteor.methods({
         });
     },
 
-
-
     'books.remove' (bookId) {
         check(bookId, String);
 
         Books.remove(bookId);
     },
 
-
-
-    // 'books.setPrivate'(taskId, setPrivate) { //Just allows changing the private property 
-    //     check(taskId, String);
-    //     check(setPrivate, Boolean);
-
-    //     const task = Tasks.findOne(taskId); //why?
-
-    //     //Make sure only the task owner can make a task private
-    //     if (task.owner !== this.userId) {
-    //         throw new Meteor.Error('not-authorized');
-    //     }
-
-    //     Tasks.update(taskId, { $set: { private: setPrivate } });
-    // },
 
 })

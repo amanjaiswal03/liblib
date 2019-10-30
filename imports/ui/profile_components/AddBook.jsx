@@ -23,6 +23,8 @@ class AddBook extends Component {
             Meteor.call('books.insert', title, author);
          
 
+            //Update counter in User collection (for sorting)
+            Meteor.users.update({ _id: Meteor.userId()}, {$inc: {'profile.ownBooksCounter': 1 }});
             
             // Then Clear form
             ReactDOM.findDOMNode(this.refs.titleNameInput).value = '';

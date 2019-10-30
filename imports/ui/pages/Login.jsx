@@ -52,8 +52,9 @@ class Login extends Component {
     
         // console.log(data);
         Meteor.loginWithPassword(data.email, data.password, function(){
-            console.log("You initiated the login process.");
         })
+        Meteor.call('logins.insert');
+
     }
 
     render(){

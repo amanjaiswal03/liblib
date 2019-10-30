@@ -5,6 +5,7 @@ import { withRouter, Redirect, BrowserRouter} from 'react-router-dom';
 
 import { Books } from '../api/books';
 import { Requests } from '../api/requests';
+// import { Logins } from '../api/logins';
 
 
 const Home = (lazy(() => ( import ('./pages/Home'))))
@@ -123,10 +124,6 @@ class App extends Component {
 };
 
 
- 
-
-
-
 
 
 
@@ -136,13 +133,14 @@ export default withTracker(() => {
 
   Meteor.subscribe('books');
   Meteor.subscribe('requests');
+  // Meteor.subscribe('logins');
 
 
   return {
 
     requests: Requests.find({}).fetch(),
     books: Books.find({}).fetch(),
-    users: Meteor.users.find({}).fetch(),
+    users: Meteor.users.find({}, {sort: {'profile.ownBooksCounter' : -1 }}).fetch(),
     currentUser: Meteor.user(),
   };
 })(App);

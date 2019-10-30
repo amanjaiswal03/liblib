@@ -19,6 +19,7 @@ class Friends extends Component {
                             let bookList = this.props.Books;
                             let friendsBooks = bookList.filter((x) => {return (x.owner == friend._id)});
                             
+                            
                             return(
                                 
                                 <div className="each-friend-container" key={friend._id}>   
@@ -29,10 +30,7 @@ class Friends extends Component {
                                 </div>        
                                 
                             
-                            )
-                                
-                            
-                            
+                            )    
                         }
                         } 
                     )}
@@ -42,40 +40,7 @@ class Friends extends Component {
         );
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // render() { 
-    //     return (
-    //         <div className = "friends">
-    //             <ul>
-    //                 <li>
-    //                     <div className = "name">Swen Kumar</div>
-    //                     <div className = "total-books"> Has 5 Books </div>
-    //                 </li>
-    //                 <li>
-    //                     <div className = "name">Mukesh Kumar</div>
-    //                     <div className = "total-books"> Has 1 Books </div>
-    //                 </li>
-    //                 <li>
-    //                     <div className = "name">Aman Kumar</div>
-    //                     <div className = "total-books"> Has 10 Books </div>
-    //                 </li>
-    //             </ul>
-    //         </div>
-    //     );
-    // }
+
 }
  
 export default Friends;

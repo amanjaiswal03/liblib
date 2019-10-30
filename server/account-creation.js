@@ -8,6 +8,7 @@ Accounts.onCreateUser(function(options, user) {
     user.profile.books = [];   
     user.profile.didOnboarding = false;
     user.profile.hasRequested = false;
+    user.profile.readUpdates = false;
     // Returns the user object
     return user;
  });

@@ -1,4 +1,4 @@
-//our uniforms schema example
+//our uniforms schema
 import SimpleSchema from 'simpl-schema';
 
 import Ajv from 'ajv';

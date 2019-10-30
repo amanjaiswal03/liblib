@@ -1,6 +1,4 @@
-//not used yet
 import { Mongo } from 'meteor/mongo';
-
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
@@ -12,7 +10,7 @@ export const Requests = new Mongo.Collection('requests', {idGeneration: 'STRING'
 
 if (Meteor.isServer) {
     //this code only runs on the server
-    Meteor.publish('requests', function booksPublication() {
+    Meteor.publish('requests', function requestsPublication() {
         return Requests.find({
             // $or: [
             //     { private: { $ne: true } },
@@ -57,21 +55,5 @@ Meteor.methods({
 
         Requests.remove(requestId);
     },
-
-
-
-    // 'books.setPrivate'(taskId, setPrivate) { //Just allows changing the private property 
-    //     check(taskId, String);
-    //     check(setPrivate, Boolean);
-
-    //     const task = Tasks.findOne(taskId); //why?
-
-    //     //Make sure only the task owner can make a task private
-    //     if (task.owner !== this.userId) {
-    //         throw new Meteor.Error('not-authorized');
-    //     }
-
-    //     Tasks.update(taskId, { $set: { private: setPrivate } });
-    // },
 
 })
