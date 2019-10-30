@@ -55,7 +55,7 @@ class Signup extends Component {
                     <div className="content-container">
                         <h2 className="login-logo">Rekindle</h2>
                         <div className="slogan">Exchange books with your friends</div>
-                        <div className="slogan2">Upload your own booklist now!</div>
+                        <div className="slogan2">List your own books now!</div>
                        
 {/*                        
                         <div className="login-link-container">

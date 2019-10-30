@@ -78,7 +78,7 @@ class Login extends Component {
                     <div className="content-container">
                         <h2 className="login-logo">Rekindle</h2>
                         <div className="slogan">Exchange books with your friends</div>
-                        <div className="slogan2">Borrow your first book now!</div>
+                        <div className="slogan2">Borrow your next book now!</div>
                        
 {/*                        
                         <div className="login-link-container">
