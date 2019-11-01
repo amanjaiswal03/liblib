@@ -25,6 +25,7 @@ class Onboarding1 extends Component {
                     <div className="onboarding-addName-container">
 
                         <div className="onboading-addName-header">What's your name? </div>
+                        <div className="onboarding-addName-message">You name will be displayed to all users</div>
                         <Name Profiles={this.props.Profiles} />
                     </div>
 

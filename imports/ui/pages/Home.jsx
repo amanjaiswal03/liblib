@@ -53,7 +53,7 @@ class Home extends Component {
                                             </div> : ''}
                                         {/* breadcrumbs menu */}
                                         <div className="breadcrumbs">
-                                            <button className= "breadcrumbs-show-all-btn"onClick={this.showAllBooks.bind(this)}>All available books</button>
+                                            <button className= "breadcrumbs-show-all-btn"onClick={this.showAllBooks.bind(this)}>All books</button>
                                             {this.state.filtered == true && this.state.filteredBooks.length > 0 ? 
                                                 ' / ' +this.state.filteredBooks[0].ownerName+ '\'s books' :''
                                             }
